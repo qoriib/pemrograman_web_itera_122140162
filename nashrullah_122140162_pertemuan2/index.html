@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Dashboard Mahasiswa</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <header class="dashboard__header">
+        <div>
+          <h1>Personal Dashboard</h1>
+          <p class="dashboard__subtitle">
+            Ringkas semua aktivitas penting: jadwal, tugas, dan catatan personal.
+          </p>
+        </div>
+        <div class="dashboard__info">
+          <div class="info-card">
+            <span class="info-card__label">Total Item</span>
+            <span class="info-card__value" id="totalEntries">0</span>
+          </div>
+          <div class="info-card">
+            <span class="info-card__label">Kategori Aktif</span>
+            <span class="info-card__value" id="activeCategories">0</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="dashboard__highlight">
+        <h2>Motivasi Hari Ini</h2>
+        <p id="motivationMessage" class="motivation">Memuat pesan motivasi...</p>
+      </section>
+
+      <main class="dashboard__main">
+        <section class="panel">
+          <div class="panel__heading">
+            <h2>Tambah / Edit Item Dashboard</h2>
+            <button type="button" class="btn btn--ghost is-hidden" id="cancelEditButton">
+              Batal
+            </button>
+          </div>
+          <form id="entryForm" class="form" novalidate>
+            <div class="form__grid">
+              <label class="form__field">
+                <span>Judul *</span>
+                <input
+                  type="text"
+                  id="entryTitle"
+                  placeholder="Contoh: Presentasi Materi IoT"
+                  required
+                />
+              </label>
+
+              <label class="form__field">
+                <span>Kategori *</span>
+                <select id="entryCategory" required>
+                  <option value="">Pilih kategori</option>
+                  <option value="Jadwal">Jadwal</option>
+                  <option value="Tugas">Tugas</option>
+                  <option value="Catatan">Catatan</option>
+                  <option value="Prioritas">Prioritas</option>
+                </select>
+              </label>
+
+              <label class="form__field">
+                <span>Tanggal</span>
+                <input type="date" id="entryDate" />
+              </label>
+            </div>
+
+            <label class="form__field">
+              <span>Deskripsi *</span>
+              <textarea
+                id="entryDescription"
+                rows="4"
+                placeholder="Ringkasan atau detail yang perlu diingat"
+                required
+              ></textarea>
+            </label>
+
+            <div class="form__actions">
+              <button type="submit" class="btn btn--primary" id="submitButton">
+                Simpan Item
+              </button>
+            </div>
+            <p class="form__feedback" id="formFeedback" role="alert"></p>
+          </form>
+        </section>
+
+        <section class="panel">
+          <div class="panel__heading">
+            <h2>Daftar Item Dashboard</h2>
+            <div class="panel__actions">
+              <label class="filters__field">
+                <span>Filter Kategori</span>
+                <select id="filterCategory">
+                  <option value="all">Semua</option>
+                </select>
+              </label>
+              <button type="button" class="btn btn--ghost" id="clearAllButton">
+                Bersihkan Semua
+              </button>
+            </div>
+          </div>
+          <div id="emptyState" class="empty-state">
+            <p>Belum ada data. Tambahkan item pertama Anda di sisi kiri.</p>
+          </div>
+          <ul class="entry-list" id="entryList" aria-live="polite"></ul>
+        </section>
+      </main>
+    </div>
+
+    <template id="entryTemplate">
+      <li class="entry-card">
+        <div class="entry-card__header">
+          <div>
+            <span class="entry-card__category"></span>
+            <h3 class="entry-card__title"></h3>
+          </div>
+          <span class="entry-card__date"></span>
+        </div>
+        <p class="entry-card__description"></p>
+        <div class="entry-card__actions">
+          <button type="button" class="btn btn--ghost js-edit">Edit</button>
+          <button type="button" class="btn btn--ghost btn--danger js-delete">
+            Hapus
+          </button>
+        </div>
+      </li>
+    </template>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
