@@ -1,0 +1,28 @@
+.book-filter {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.book-filter__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.book-filter__field select {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid #cbd5f5;
+  background: #f8faff;
+  font: inherit;
+}
+
+.book-filter__field select:focus {
+  outline: none;
+  border-color: #1d4ed8;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.22);
+}

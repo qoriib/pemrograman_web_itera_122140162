@@ -1,0 +1,22 @@
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+.search-bar input {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid #cbd5f5;
+  background: #f8faff;
+  font: inherit;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: #1d4ed8;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.22);
+}

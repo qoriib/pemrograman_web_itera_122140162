@@ -1,0 +1,58 @@
+.book-card {
+  border-radius: 16px;
+  border: 1px solid #dbe2f3;
+  padding: 18px 20px;
+  background: #ffffff;
+  display: grid;
+  gap: 16px;
+}
+
+.book-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.book-card h3 {
+  margin: 0 0 6px;
+  font-size: 1.25rem;
+}
+
+.book-card__author {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.book-card__actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.badge {
+  padding: 6px 12px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.badge--owned {
+  background: rgba(16, 185, 129, 0.18);
+  color: #047857;
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+.badge--reading {
+  background: rgba(37, 99, 235, 0.16);
+  color: #1d4ed8;
+  border-color: rgba(37, 99, 235, 0.25);
+}
+
+.badge--wishlist {
+  background: rgba(234, 179, 8, 0.18);
+  color: #b45309;
+  border-color: rgba(234, 179, 8, 0.25);
+}
