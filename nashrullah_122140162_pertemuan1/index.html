@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aplikasi Manajemen Tugas Mahasiswa</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app__header">
+        <div>
+          <h1>Aplikasi Manajemen Tugas</h1>
+          <p class="app__subtitle">
+            Kelola tugas akademik Anda, pantau progres, dan tetap produktif.
+          </p>
+        </div>
+        <div class="app__stats">
+          <span class="stat__label">Tugas belum selesai:</span>
+          <span class="stat__value" id="pendingCount">0</span>
+        </div>
+      </header>
+
+      <main class="app__main">
+        <section class="panel">
+          <h2 class="panel__title">Tambah / Edit Tugas</h2>
+          <form id="taskForm" novalidate>
+            <div class="form__grid">
+              <label class="form__field">
+                <span>Nama Tugas *</span>
+                <input
+                  type="text"
+                  id="taskName"
+                  name="taskName"
+                  placeholder="Contoh: Ringkasan Bab 3"
+                  required
+                />
+              </label>
+              <label class="form__field">
+                <span>Mata Kuliah *</span>
+                <input
+                  type="text"
+                  id="courseName"
+                  name="courseName"
+                  placeholder="Contoh: Pemrograman Web"
+                  required
+                />
+              </label>
+              <label class="form__field">
+                <span>Deadline *</span>
+                <input type="date" id="deadline" name="deadline" required />
+              </label>
+            </div>
+
+            <div class="form__actions">
+              <button type="submit" class="btn btn--primary" id="submitButton">
+                Simpan Tugas
+              </button>
+              <button
+                type="button"
+                class="btn btn--ghost is-hidden"
+                id="cancelEditButton"
+              >
+                Batal
+              </button>
+            </div>
+            <p class="form__feedback" id="formFeedback" role="alert"></p>
+          </form>
+        </section>
+
+        <section class="panel">
+          <h2 class="panel__title">Filter &amp; Pencarian</h2>
+          <div class="filters">
+            <label class="filters__field">
+              <span>Status</span>
+              <select id="statusFilter">
+                <option value="all">Semua</option>
+                <option value="pending">Belum selesai</option>
+                <option value="completed">Selesai</option>
+              </select>
+            </label>
+            <label class="filters__field">
+              <span>Mata Kuliah</span>
+              <select id="courseFilter">
+                <option value="all">Semua</option>
+              </select>
+            </label>
+            <label class="filters__field filters__field--grow">
+              <span>Pencarian Kata Kunci</span>
+              <input
+                type="search"
+                id="searchInput"
+                placeholder="Cari berdasarkan nama tugas atau mata kuliah"
+              />
+            </label>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel__header">
+            <h2 class="panel__title">Daftar Tugas</h2>
+            <button type="button" class="btn btn--ghost" id="clearCompletedButton">
+              Hapus Tugas Selesai
+            </button>
+          </div>
+          <div id="emptyState" class="empty-state">
+            <p>Belum ada tugas. Mulai dengan menambahkan tugas baru di atas.</p>
+          </div>
+          <ul class="task-list" id="taskList" aria-live="polite"></ul>
+        </section>
+      </main>
+    </div>
+
+    <template id="taskItemTemplate">
+      <li class="task">
+        <div class="task__details">
+          <div class="task__title-row">
+            <input type="checkbox" class="task__checkbox" />
+            <span class="task__title"></span>
+          </div>
+          <div class="task__meta">
+            <span class="task__course"></span>
+            <span class="task__deadline"></span>
+          </div>
+        </div>
+        <div class="task__actions">
+          <button type="button" class="btn btn--icon js-edit" aria-label="Edit tugas">
+            Edit
+          </button>
+          <button type="button" class="btn btn--icon js-delete" aria-label="Hapus tugas">
+            Hapus
+          </button>
+        </div>
+      </li>
+    </template>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

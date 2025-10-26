@@ -1,0 +1,18 @@
+# Node modules and build outputs
+node_modules/
+dist/
+build/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.cache
+
+# Environment files
+.env
+.env.local
+
+# macOS and editor artifacts
+.DS_Store
+.vscode/
+.idea/
