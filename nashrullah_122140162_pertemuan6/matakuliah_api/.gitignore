@@ -1,0 +1,26 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+env/
+venv/
+.venv/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Packaging / build
+*.egg-info/
+build/
+dist/
+
+# Local settings / artifacts
+.env
+*.sqlite
